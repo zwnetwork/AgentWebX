@@ -1,0 +1,55 @@
+apply plugin: 'com.android.library'
+
+android {
+    compileSdkVersion COMPILE_SDK_VERSION.toInteger()
+    buildToolsVersion "${BUILD_TOOL_VERSION}"
+
+    defaultConfig {
+        minSdkVersion 14
+        targetSdkVersion TARGET_SDK_VERSION.toInteger()
+        versionCode 3
+        versionName "5.0.0"
+
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner'
+
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            buildConfigField 'String', 'VERSION_NAME', "\"" + "5.0.0" + "\""
+        }
+        debug {
+            buildConfigField 'String', 'VERSION_NAME', "\"" + "5.0.0" + "\""
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    lintOptions {
+        abortOnError false
+    }
+    repositories {
+        flatDir {
+            dirs 'libs', 'providedLibs'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+//   defaultPublishConfig "debug"
+}
+
+dependencies {
+    compileOnly fileTree(include: ['*.jar'], dir: 'libs')
+    androidTestImplementation('androidx.test.espresso:espresso-core:3.1.0', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+    testImplementation 'junit:junit:4.12'
+    compileOnly 'com.github.Justson:Downloader:v4.1.9-androidx'
+    compileOnly 'com.google.android.material:material:1.0.0'
+    compileOnly 'androidx.legacy:legacy-support-v4:1.0.0'
+    compileOnly fileTree(include: ['*.jar'], dir: 'providedLibs')
+}
