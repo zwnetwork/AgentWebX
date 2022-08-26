@@ -1,4 +1,3 @@
-
 ## AgentWeb 介绍
 
 AgentWeb 是一个基于的 Android WebView ，极度容易使用以及功能强大的库，提供了 Android WebView 一系列的问题解决方案 ，并且轻量和极度灵活，详细使用请参照上面的 Sample 。
@@ -16,6 +15,9 @@ allprojects {
 ```
 
 
+* Androidx
+
+   ```groovy
     implementation 'com.github.Justson.AgentWeb:agentweb-core:v5.0.0-alpha.1-androidx' // (必选)
     implementation 'com.github.Justson.AgentWeb:agentweb-filechooser:v5.0.0-alpha.1-androidx' // (可选)
     implementation 'com.github.Justson:Downloader:v5.0.0-androidx' // (可选)
@@ -38,7 +40,7 @@ allprojects {
 * `setAgentWebParent` 不支持  `ConstraintLayout` 。
 * `mAgentWeb.getWebLifeCycle().onPause();`会暂停应用内所有`WebView` 。
 * `minSdkVersion` 低于等于16以下自定义`WebView`请注意与 `JS` 之间通信安全。
-* 本项目fork自https://github.com/Justson/AgentWeb/ 只做了Androidx发布
+* 本项目fork自https://github.com/Justson/AgentWeb/ 非首发
 
 
 
@@ -75,6 +77,10 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 ```
+
+​	
+
+​	  
 
 
 
